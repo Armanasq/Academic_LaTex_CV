@@ -1,0 +1,474 @@
+\documentclass[a4,25pt]{article}
+
+\usepackage{indentfirst}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{tabularx}
+\hypersetup{colorlinks=true,urlcolor=black}
+\usepackage[11pt]{moresize}
+\usepackage{setspace}
+\usepackage{fontspec}
+\usepackage[inline]{enumitem}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{anyfontsize}
+\usepackage{fontspec}
+\usepackage{academicons}
+\usepackage{fancyhdr}
+\usepackage{fontawesome}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{parskip}[0.5cm]
+\usepackage{hyperref}
+\usepackage{url}
+%%%% Set Margins
+\usepackage[margin=1.cm, top=0.7cm, bottom=1.3cm]{geometry}
+\usepackage[english]{babel}
+\usepackage[document]{ragged2e}
+
+%%%% Set Fonts
+\setmainfont[
+BoldFont=EBGaramond-Bold.ttf, %SourceSansPro-Bold.otf
+ItalicFont=EBGaramond-Italic.ttf
+]{EBGaramond-Regular.ttf}
+\setsansfont{EBGaramond-SemiBold.ttf}
+
+%%%% Set Page
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%%%% Set URL Style
+\urlstyle{same}
+
+%%%% Set Indentation
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%%%% Set Secondary Color
+\definecolor{UI_blue}{RGB}{0,0,0}
+
+%%%% Define New Commands
+
+
+%%%% Set Sections formatting
+\titleformat{\section}{
+ \color{UI_blue} \scshape \raggedright \large \bfseries
+}{}{17.3em}{}[\vspace{-10pt} \hrulefill \vspace{-2pt}]
+
+%%%% Set Subtext Formatting
+\newcommand{\subtext}[1]{
+#1\par\vspace{-0.2cm}}
+
+\newcommand{\subtextit}[1]{\vspace{0.15cm}
+ \textit{ #1 \vspace{-0.2cm}} }
+ %%%
+\newcommand{\cps}{{\color{red} \quad \textbf{|}\quad}}
+\newcommand{\cpshalf}{{\color{red} \hspace{0.2em}\textbf{|}\hspace{0.2em}}}
+%%%% Set Item Spacing
+\setlist[itemize]{align=parleft,left=10pt..2em}
+
+%%%% New Itemize "Zitemize" Formatting - tighter spacing than itemize
+\newenvironment{zitemize}{
+\begin{itemize}\itemsep0pt \parskip0pt \parsep1pt}
+{\end{itemize}\vspace{-0.5cm}}
+
+
+%%%% Define Skills Bold Formatting
+\newcommand{\hskills}[1]{
+\textbf{\bfseries #1} }
+
+%%%% Set Subsection formatting
+\titleformat{\subsection}{\vspace{-0.1cm} 
+\bfseries \fontsize{11pt}{2cm}}{}{0em}{}[\vspace{-0.2cm}]
+%%%%%%
+
+%%%%%%% --------------------------------------------------------------------------------------
+\rfoot{{\par\fontfamily{ttf} \selectfont \footnotesize \emph{ \thepage \hspace{1pt} of \pageref{LastPage}}}}
+\setlength{\parindent}{4em}
+\setlength{\parskip}{0.5cm}
+%%%%%%% --------------------------------------------------------------------------------------
+
+\def\Vrulefill#1#2{
+    \vspace{-10pt}
+    \leavevmode%
+    %\hskip-.2in%
+    \leaders%
+    \vtop{\hsize=.0025in\vskip#1#2}%
+    \hfill%
+    %\hskip.3in%
+    \vspace{-2pt}
+}
+
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+\usepackage{xhfill}
+\usepackage{graphicx}  
+\newcommand\ruleafter[1]{#1~\xrfill[.7ex]{1pt}}
+\titleformat{\section}
+  {\vspace{-0.3cm}\normalfont\Large\scshape}{\thesection}{1em}{\ruleafter }{\vspace{-1.3cm}} {\vspace{-0.9cm}} 
+\newenvironment{researchinterest}
+{\section*{Research Interest}
+\vspace{-0.2cm}
+\hspace{0.5cm}\begin{tabular}{>{}p{0.2\textwidth} p{0.7\textwidth}}}
+{\end{tabular}}
+
+\newenvironment{education}{
+    
+    \begin{list}{$\bullet$}{\leftmargin=1cm}
+}{\end{list}}
+
+\newcommand{\edu}[3]{
+    \vspace{-0.2cm}
+    \item{\textbf{#1} #2 \hfill\textbf{#3}} \vspace{-2pt}
+}
+
+\newcommand{\edudetail}[2]{
+    \vspace{-0.4cm}
+    \begin{description}
+        \item[] #1 {#2} \vspace{-1.5pt}
+    \end{description}
+}
+
+\newcommand{\edudetailitemize}[1]{
+    \vspace{-0.4cm}
+    \begin{itemize}
+        \item #1 \vspace{-3pt}
+    \end{itemize}
+}
+
+
+\newenvironment{publications}{
+    \section*{Publications}
+    \begin{enumerate}[leftmargin=1cm]
+        }{ \vspace{0.2cm}\end{enumerate}}
+        
+\newcommand{\pub}[4]{ 
+    \item   ``#1" #2, \textit{#3}, #4 \vspace{-0.35cm}
+}
+
+% personal details with commands: name, phone, email, website, github, researchgate, linkedin
+\newenvironment{personaldetail}{
+\begin{center}   
+}{\end{center}}
+
+\newcommand{\name}[1]{
+    {\huge #1}\\ \vspace{0.15cm}
+} 
+
+\newcommand{\phone}[2]{
+    \texttt{\href{callto:#1#2}{(#1) #2}} \hspace{5 pt}| 
+}
+
+\newcommand{\email}[1]{
+    \texttt{\href{mailto:#1}{#1}} \hspace{5 pt}| 
+}
+
+\newcommand{\website}[1]{
+    \href{#1}{#1} \\ \vspace{0.25cm}
+}
+
+\newcommand{\github}[1]{
+    \href{https://www.github.com/#1}{\includegraphics[width=15pt]{github.png}}
+}
+
+\newcommand{\researchgate}[1]{
+    \href{https://researchgate.net/profile/#1}
+    {\includegraphics[width=15pt]{rg.png}}
+}
+
+\newcommand{\linkedin}[1]{
+    \href{https://linkedin.com/in/#1}
+    {\includegraphics[width=15pt]{linkedin.png}}
+\vspace{-0.35cm} }
+
+\newenvironment{Experience}[1]{
+    \section*{#1} \vspace{-.2cm}
+    \hspace{.5cm}
+    \begin{minipage}{0.95\linewidth}
+    }{ \end{minipage}}
+    
+
+\newcommand{\experience}[3]{ 
+  \vspace{0.1cm}\textbf{#1}{ #2} \hfill \textbf{#3} \par
+}
+
+\newcommand{\expdetail}[1]{
+    % begin bo
+        {#1 } \par
+}
+
+\newcommand{\expdetails}[1]{
+    \begin{itemize} 
+    \item #1 \vspace{1pt}
+    \end{itemize} 
+}
+
+\newenvironment{Skills}[1]{
+    \section*{#1} \vspace{-.2cm} \hspace{.5cm}
+    \begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+    }{\end{tabular}}
+
+\newcommand{\skill}[2]{
+    \textbf{#1} & {#2} \\
+}
+
+% Certificates          intitude 1          intitude 2          intitude 3
+%                           cerf 1              cerf 1              cerf 1
+%                           cerf 2              cerf 2              cerf2
+\newenvironment{Certificates}[1]{ 
+    \section*{#1} \vspace{-.2cm} \hspace{.5cm}
+    \begin{tabular}{p{0.3\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+    }{\end{tabular}}
+
+
+
+
+\begin{document}
+    \begin{personaldetail}
+    \name{Arman Asgharpoor Golroudbari}
+    \phone{+98}{9196097597}
+    \email{a.asgharpoor@ut.ac.ir}
+    \website{ArmanAsq.github.io}
+    \linkedin{asgharpoor}
+    \researchgate{Arman_Asgharpoor}
+    \github{armanasq}
+\end{personaldetail}
+
+\begin{researchinterest}
+    \textbf{Machine Learning} & {{AI-based State Estimation and Sensor Fusion}} \\
+    \textbf{Computer Vision} & {Vision-Based Autonomous Robot Navigation } \\
+    \textbf{Robotic} & Robot Learning and Interation
+    %\textbf{Navigation} & {Spacecraft Navigation, Machine Learning, and Computer Vision Approach }
+\end{researchinterest}
+
+\section*{Education}
+\begin{education}
+    \edu{Oxford Machine Learning Summer School}{Oxford, UK }{Jun. 2022 – Aug. 2022}
+    \edudetail{Organized by AI for Global Goals, CIFAR, and the University of Oxford’s Deep Medicine Program}{}
+    \edudetail{\textbf{Topics: }}{Fundamentals of statistical ML, Fundamentals of deep learning, Mathematics of machine learning, Optimizations }
+    \edu{M.Sc. Space Engineering}{University of Tehran, Tehran, IR}{Sep. 2019 – Sep. 2022}
+    \edudetail{School Ranking: 1$^{st}$ in Iranian Universities}{\hfill GPA 4.0/4.0}
+    \edudetail{Thesis: } {AI Application in Inertial Navigation}
+    \edudetailitemize {Sensor fusion algorithms were combined with Deep Learning to improve inertial attitude estimation accuracy}
+    \edudetailitemize {Ray and Sherpa were used for Hyperparameter Optimization (PBT, Grid \& Random Search) in Python (Keras \& PyTorch)}
+    \edudetailitemize {End-to-End ANN Frameworks were developed for Inertial Odometry (6DoF \& 9DoF)}
+    \edudetailitemize {End-to-End ANN Frameworks were developed for Attitude Estimation (2DoF \& 3DoF)}
+
+    \edu{Healthcare MBA}{Academic Center for Education, Culture and Research, Tehran, IR}{Apr. 2019 – Apr. 2020}
+    \edudetail{Project: Application of AI in personalized medicine}{\hfill{GPA 4.0/4.0}}
+    \edudetail{\textbf{Key Courses: }} {Project Management, Technology Strategy Management, Entrepreneurship Finance, Problem Solving}
+    \edu{B. Eng. Aircraft Avionics Technology}{Aviation Industry Training Center, Tehran, IR}{Sep. 2016 – Jun. 2019}
+    \edudetail{University of Applied Science and Technology}{\hfill{GPA 3.8/4.0}}
+    \edudetail{\textbf{Selected Coursework:}} {Used Altium Designer and Proteus for Circuit Design, Coding used C, C++, and Arduino IDE}
+    \edu{A.E.T Avionics}{Civil Aviation Technology College, Tehran, IR}{Jan. 2013 – Sep. 2016}
+    \edudetail{\textbf{Key Courses:}} {C++, Aircraft Computer, Telecommunications, Aerodynamics, Navigation Systems, Instrumentations}
+\end{education}
+
+\begin{publications}
+    \pub{A Receding Horizon Iterative Learning (RHILC) Approach to Formation Control of Multi-Agent Non-Holonomic System}{\textbf{A. Asgharpoor}, M. H. Sabour}{Aeronautical Journal}{Under Review}
+    \pub{End-to-End Deep Learning for State Estimation: Attitude and Heading Estimation Approach}{\textbf{A. Asgharpoor}, M. H. Sabour}{Sensors}{Ready to Submit}
+    \pub{Deep Neural Network based Inertial Attitude Estimation using Low-Cost IMU}{\textbf{A. Asgharpoor}, M. H. Sabour}{IEEE Transactions on Mobile Computing}{Ready to Submit}
+    \pub{6-Axis Deep Neural Network Inertial Odometry}{\textbf{A. Asgharpoor}, M. H. Sabour}{Expert Systems with Applications}{Work in Progress}
+    \pub{Neural Network-Based Estimation: A Review}{\textbf{A. Asgharpoor}, M. H. Sabour}{Neural Computing \& Applications}{Work in Progress}\pub{Deep Learning based 9-DoF Inertial Odometry for Autonomous Aerial Robots}{\textbf{A. Asgharpoor}, M. H. Sabour}{Drones}{Work in Progress}
+    \vspace{-0.5cm}
+\end{publications}
+
+
+\begin{Experience}{Mentoring}
+    \experience{Mentor}{Space Generation Advisory Council}{Nov. 2020 - Present}
+    \expdetail{SGAC Mentoring Program}
+    \expdetails{Provide guidance, give personalized advice, and support to mentees}
+    \experience{Thesis Advisor}{Aviation Industry Training Center}{Sep. 2018 - Sep. 2020}
+    \expdetail{Provided advice to undergraduate students on their thesis activities, evaluated the scientific progress, and suggested directions that would enable them to complete a successful thesis. Mostly, SolidWorks and Inventor have been used for mechanical design, Altium Designer and Proteus used for circuit and PCB design, and VS Code and Arduino IDE used for C++ programming.}
+    \expdetails{Design and Implementation of A 3 Axis CNC Machine (Spring 2019 - Fall 2020)}
+    \expdetails{Design and Implementation of Pulse Circuits Training Board (Fall 2019 - Fall 2020)}
+    \expdetails{Design, Simulate and Build an Aircraft Fire Extinguishing System (Spring 2019 - Fall 2020)}
+    \expdetails{Design and Implementation of Retractable Landing Gear (Fall 2018 - Spring 2020)}
+    \expdetails{Design and Implementation of A CNC Hot Wire (Fall 2018 - Fall 2019)}
+\end{Experience}
+
+\begin{Experience}{Research Experience}
+    \experience{Summer Project}{University College London}{Jul. 2022 - Present}
+    \expdetail{Use Generative Adversarial Imitation Learning and Reinforcement Learning}
+    \expdetails{Created path planning of a ground robot via Python in the ROS environment.}
+    \experience{Founder of Fuzzy Logic Lab}{USERN Interest Group}{Nov. 2020}
+    \expdetail{Aimed to do research on Multi-Criteria Decision Making}
+    \experience{ShadX Team Leader}{AIAA Aircraft Design Competition}{Aug. 2020}
+    \expdetail{As a Graduate Team Aircraft Design, designed a modern regional jet family}
+    \experience{Research Assistant}{Fuzzy Logic Lab, University of Tehran}{Nov. 2019 - Present}
+    \expdetail{Done research on Fuzzy Inference Systems, such as Fuzzy tuned complementary filters for IMU-based attitude estimation.}
+    \expdetail{Websites:}
+    \expdetail{\hspace{1cm}\href{https://fuzzylogic.ut.ac.ir/en/page/7122/arman-asgharpoor}{\faGlobe \hspace{ 0.2cm} University of Tehran Fuzzy Logic Lab} \hspace{ 0.75cm} \href{https://usern.tums.ac.ir/Group/Info/FLLIG}{\faGlobe \hspace{ 0.2cm}USERN Fuzzy Logic Lab Interest Group}  \hspace{ 0.75cm}\href{https://www.researchgate.net/lab/Fuzzy-Lab-Mohammad-H-Sabour}{\faGlobe \hspace{ 0.2cm}ResearchGate}}
+    \experience{Research Assistant}{Space Lab, University of Tehran}{Sep. 2019 - Sep. 2022}
+    \expdetails{Used 3-DoF experimental test bed for integrated attitude dynamics and control}
+    \expdetails{Used LabView and ARM development boards}
+    \experience{MSc Space Engineering, }{University of Tehran}{Sep. 2019 - Sep 2022}
+    \expdetail{Advisor: Mohammad Hossein Sabour}
+    \expdetail{Focused on the application of AI in inertial navigation. To investigate how Machine Learning can be applied to navigation, sensor fusion algorithms combined with various ML techniques using MATLAB and Python.}
+    \expdetails{Developed 9-DoF End-to-End Deep Learning framework for inertial odometry using IMU+Magnetometer measurements. Extract the feature in sensor readings and estimate the latent system state and investigated how to develop a robust and generalized DL model capable of accepting inputs with different sampling rates.}
+    \expdetails{Developed 6-DoF IoNet Deep Learning framework to estimate the displacement and rotation for inertial odometry directly from Accelerometer and Gyroscope measurements.}
+    \expdetails{Developed End-to-End Deep Learning framework to estimate attitude and heading based on MARG sensor measurements using various inertial odometry and IMU datasets (BROAD, OxIOD, Kitti, Sassari, RepoIMU).}
+    \expdetails{Implemented various attitude conventional attitude estimation algorithms in Python and MATLAB, (e.g., TRIAD, Davenport’s q-Method, Factored Quaternion Algorithm, QUEST, Complementary Filter, KF Family, Madgwick, and Mahony Filter)}
+    \experience{Referee of Research Council}{Students’ Scientific Research Center}{Apr. 2019 - Present}
+    \expdetail{Responsible for reviewing and evaluating research proposals to analyze and determine whether:}
+    \expdetails{The RP follows the structure, is written correctly, and makes a significant contribution to the field }
+    \expdetails{The problem is a new one that has significant novelty and the method of approach is reasonable}
+    \expdetails{The investigators and contributors are qualified and the budget is reasonable }
+    \experience{CNC Milling Machine Design and Fabrication}{Aviation Industry Training Center}{Jul. 2019 - Jan. 2020}
+    \expdetails{Designed, built, and implemented 3-Axis Arduino-based CNC milling using GRBL and Marlin}
+    \expdetails{Used embedded systems to control CNC, and used SolidWorks and Inventor to design the structure}
+    \experience{CanSat Competition Design and Fabrication}{University of Tehran}{Sep. 2019 - Mar. 2020}
+    \expdetails{Designed structure to land safely, and developed C++ and Python based frameworks for telemetry, tracking, and control }
+    \expdetails{Used Raspberry Pi for Computer Vision and Pattern Detection }
+    \expdetails{Sensor Fusion implemented for Navigation and State Estimation (KF Family)}
+    \experience{Research Assistant}{Aviation Industry Training Center}{Oct. 2018 - Sep. 2020}
+    \expdetail{Supervised undergraduate students working on the research project by }
+    \expdetails{Conducted literature reviews; collected, managed, and analyzed data}
+    \expdetails{Provided ready access to all experimental data for the faculty researcher and supervisor }
+    \experience{Wireless Power Transmission (WPT) for Medical Purposes}{Aviation Industry Training Center}{Sep. 2018 - Jul. 2019}
+    \expdetails{Circuit Designer and Analyzer, Used ANSYS, ADS, CST, and Altium Designer to design and analyze the circuit}
+    \experience{Avionics Lab}{Aviation Industry Training Center}{Sep. 2018 - Sep. 2020}
+    \expdetails{Worked with Aircraft Instrument Panels and different flight instruments}
+    \expdetails{Altimeter, Attitude, Airspeed, Vertical Speed, and Heading Indicator}
+    \experience{Electronics Lab}{Aviation Industry Training Center}{Sep. 2018 - Sep. 2020}
+    \expdetails{Designed and assembled PCBs: Fire extinguisher, Flight Management System (FMS) simulator and etc.}
+    \expdetails{Used various measuring tools: Function Generator, Oscilloscope, and LCR meter}
+    \experience{Aircraft Instruments Lab}{Civil Aviation Technology College}{Oct. 2015 - Aug. 2016}
+    \expdetails{Lab redesigned, and inventory management was done to improve student performance}
+    \expdetails{Repaired different flight instruments }
+\end{Experience}
+
+
+\begin{Experience}{Teaching Experience}
+    \experience{Teaching Assistant}{University of Tehran}{Fall 2022}
+    \expdetail{Fuzzy Logic at Graduate Level (M.Sc. and Ph.D. Students) – Supervisor: Dr. M.H. Sabour}
+    \expdetails{Topics include reasoning, classical logic, Fuzzy logic, Fuzzy reasoning, Fuzzy inference systems}
+    \expdetails{Prepared homework and exam problems/solutions, gave review lectures}
+    \expdetails{Developed student projects using MATLAB Fuzzy logic toolbox}
+    \experience{Instructor}{Aviation Industry Training Center}{Sep. 2018 - Sep. 2020}
+    \expdetails{A total of 11 courses related to electronics, navigation, and aviation were taught. These courses focused on the application of electronics and microprocessors in aviation, particularly for aircraft instruments and navigation.}
+    \hspace{0.02\linewidth}\begin{minipage}{0.98\linewidth}
+    {
+    \expdetail{\hspace{-0.1cm} - \hspace{0.1cm} \textbf{Internship Tutor} \hfill Sep. 2018 - Sep. 2020}
+    \hspace{0.02\linewidth}\begin{minipage}{0.98\linewidth}
+    {
+    \expdetail{The main objective of these courses is to gain experience in testing and working with various instruments such as Function Generators, Oscilloscopes, and LCR meters. Also, developed microprocessor projects based on C++ programming using Arduino (UNO R3, Due 2560, Mega, Nano) and AVR chips in VS Code, Arduino IDE, and CodeVisionAVR}
+    \expdetails{B.Eng., Avionics Technology – 16 undergraduate students enrolled \hfill Fall 2019 – Fall 2020}
+    \expdetails{B.Eng., Aircraft Maintenance – 10 undergraduate students enrolled \hfill Fall 2019 – Fall 2020}
+    \expdetails{A.E.T., Avionics Technology – 12 undergraduate students enrolled \hfill Fall 2018 – Fall 2020} 
+    \expdetails{A.E.T., Aircraft Maintenance – 8 undergraduate students enrolled \hfill Fall 2018 – Fall 2020}
+    }\end{minipage}
+    \expdetail{\hspace{-0.1cm} - \hspace{0.1cm}\textbf{Lab Tutor} \hfill Sep. 2018 - Sep. 2020}
+    \hspace{0.02\linewidth}\begin{minipage}{0.98\linewidth}
+    {
+    \expdetail{Designed and assembled PCBs, e.g., Fire extinguisher, Flight Management System (simulator) using Altium Designer, Proteus, and SolidWorks Electrical. Various measuring tools (Function Generator, Oscilloscope, LCR meter) has been used to test the circuits}
+    \expdetails{Electronics I – 10 undergraduate students enrolled \hfill Fall 2018 – Fall 2020}
+    \expdetails{Electronics II – 10 undergraduate students enrolled \hfill Fall 2018 – Fall 2020}
+    \expdetails{Electronics III – 10 undergraduate students enrolled \hfill Fall 2018 – Fall 2020}
+    \expdetails{Electronic Circuits I – 10 undergraduate students enrolled \hfill Fall 2018 – Fall 2020}
+    \expdetails{Electronic Circuits II – 15 undergraduate students enrolled \hfill Fall 2018 – Fall 2020}
+    \expdetails{Microprocessors – 10 undergraduate students enrolled \hfill Fall 2018 – Fall 2020}
+    \expdetails{Aircraft Instruments – 10 undergraduate students enrolled \hfill Fall 2018 – Fall 2020}}
+    \end{minipage}
+    }\end{minipage}
+\end{Experience}
+
+\begin{Experience}{Work Experience}
+    \experience{Martial Arts Instructor}{Iran Martial Arts Federation}{Mar. 2016 – Present}
+    \expdetail{Black Belt Dan II}
+    \expdetails{Improve communication skills by teaching students from various backgrounds}
+    \experience{Manager}{Arman Imen Passargad}{Jan. 2013 – Present}
+    \expdetails{Improve leadership and management skills by working with different people in harsh work environments}
+\end{Experience}
+
+\begin{Experience}{Internships}
+    \experience{IranAir,}{ Aircraft Avionics}{Sep. 2018 – Nov. 2018}
+    \expdetails{Used ATR-72 and Airbus A-320 Aircraft Maintenance Manual (AMM) and Aircraft Illustrated Parts Catalog (IPC) for checking the aircraft’s Engine and Avionics Instruments}
+    
+    \experience{Civil Aviation Technology College,}{ Avionics}{Sep. 2015 – Jun. 2016}
+    \expdetails{Used AMM to overhaul Aero Commander 690}
+\end{Experience}
+
+
+\begin{Skills}{Skills}
+    \skill{Programming}{Python (Matplotlib, NumPy, Pandas, TensorFlow, Keras), MATLAB, Simulink, Arduino, C++, LaTeX}
+    \skill{CAD-CAM}{CATIA, SolidWorks, Inventor, Proteus, Altium Designer, AutoCAD}
+    \skill{CAE}{CST, ADS, ANSYS Workbench, Abaqus, COMSOL}
+    \skill{AI}{Fuzzy Inference System, Deep Learning (LSTM, CNN, TCN, etc.), PBT Hyperparameter Optimization}
+    \skill{Language}{English (Fluent), Persian (Native)}
+\end{Skills}
+
+
+\begin{Experience}{Leadership Experience}
+    \experience{Universal Scientific Education \& Research Network}{}{Jan. 2021 – Jan 2022}
+    \expdetails{6th International USERN Congress \& Prize Awarding Festival, Executive Member} 
+    \expdetails{Research Week, Executive Member}
+    \expdetails{Lab Techniques School, Executive Member}
+    \expdetails{Minatare Talk, Executive Member}
+    \expdetails{USERN Health \& Art, 7th International Festival of Paintings for Pediatric Patients, Executive Member}
+    \expdetails{R\&D, Publicity, Media, and IT, Team Member}
+    \experience{Tehran University of Medical Sciences}{}{Jan. 2014 – Dec. 2021}
+    \expdetails{Interprofessional collaboration in the Covid-19 Era: Pros and Cons, Executive Committee Member}
+    \expdetails{4th Student Education Development Festival, Executive Member}
+    \expdetails{20th, 21st, and 23rd Conference of Annual General Meeting, Executive Member}
+    \experience{University of Tehran}{}{Sep. 2019 – Jul. 2020}
+    \expdetails{Cultural Society KARA, Former}
+    \expdetails{Climate Change Conference, Organizer}
+    \experience{Night Sky Institute}{}{Mar. 2017}
+    \expdetails{World Astronomy Week, Executive Member}
+    \experience{Civil Aviation Technology College}{}{Jan. 2012 – Sep. 2015}
+    \expdetails{WaterRocket Competition, Organizer}
+    \expdetails{Road \& Urban Development \& The Related Industries Exhibition, Executive Member}
+    \expdetails{3rd, 4th, and 5th International Aviation \& Space Industries Exhibition of Iran, Executive Member}
+    \experience{Pest Control – Volunteer Work}{}{Jan.2013 – Present}
+    \expdetails{Kahrizak Nursing Home}
+    \expdetails{Sarai Ehsan Social Victims Center}
+    \expdetails{Vardavard Welfare}
+\end{Experience}
+
+
+
+\begin{Experience}{Awards \& Honors}
+    \experience{USERN Miniature Talk}{Appreciated Presenter}{Aug. 2021}
+    \experience{National University Entrance Exam}{Ranked top 10\% in M.Sc. Aerospace Engineering}{2019}
+    \experience{University of Tehran, Dept. Aerospace}{Ranked 1st in Class 2019}{}
+    \experience{Iran Martial Arts Federation,}{ National Competitions}{}
+    \expdetails{Gold Medalist \hfill \textbf{2011, 2012, 2018, 2019}}
+    \expdetails{Silver Medalist\hfill\textbf{2015}}
+    \expdetails{Bronze Medalist\hfill \textbf{2016, 2019}}
+    \experience{Nearu Martial Arts,}{ Black Belt Dan II}{2015}
+\end{Experience}
+
+\section*{Certificates}
+\vspace{-0.2cm}
+\hspace{0.5cm}\begin{tabular}{>{}p{0.3\textwidth} p{0.45\textwidth}p{0.2\textwidth}}
+\textbf{USERN} & \textbf{University of Toronto (Coursera)} & \textbf{MathWorks} \\
+- Submission \& Peer Reviewing & - State Estimation and Localization for Self-Driving Cars & - MATLAB Onramp \\
+- Data Analysis in SPSS & \textbf{DeepLearning.AI (Coursera)} \\
+- Systematic Review & - Neural Networks and Deep Learning & \\
+- Scientific Writing & \textbf{National Society of Professional Engineers} &  \\
+- Meta-analysis & - Bridging the Gap to Leadership & \\
+\end{tabular}
+\section*{Membership \& Affiliations}\vspace{-0.2cm}
+\hspace{0.5cm}\begin{tabular}{>{}p{0.65\textwidth} p{0.3\textwidth}}
+University of Oxford Responsible Technology Institute Student Network & University of Tehran Chess Club \\
+Student Chapter of the European Low Gravity Research Association & Astronomers Without Borders \\
+Space \& Satellite Professionals International & Royal Aeronautical Society \\
+Educational Development Center, TUMS & Space Generation Advisory Council 
+\end{tabular}
+
+\end{document}
